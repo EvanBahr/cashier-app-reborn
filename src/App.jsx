@@ -1,7 +1,7 @@
-import { useState } from "react";
 import ProdukWarung from "../data/produk";
-import Footer from "@/components/Footer";
-
+import Footer from "../components/Footer";
+import { useState } from "react";
+import "./App.css";
 export default function Warung() {
   const now = new Date();
   const jam = now.getHours();
@@ -265,7 +265,7 @@ export default function Warung() {
             <div
               className={`${
                 pesanan.name.length < 1 ? " active:bg-red-500 " : ""
-              } uppercase  rounded-2xl font-bold h-16 bg-green-700 hover:bg-green-500 text-white p-5 `}
+              } uppercase cursor-pointer rounded-2xl font-bold h-16 bg-green-700 hover:bg-green-500 text-white p-5 `}
               onClick={() => {
                 setNotatampl("tampil");
                 tamplAlert();
@@ -283,11 +283,11 @@ export default function Warung() {
               {keranjang.reverse().map((v, i) => (
                 <div
                   key={i}
-                  className={`capitalize text-left p-2  rounded-2xl mb-3 bg-white`}
+                  className={`capitalize text-left p-2 bg-white rounded-2xl mb-3 `}
                 >
                   <div className="flex justify-between">
-                    <div>{v.nama}</div>
-                    <div>{v.total.toLocaleString()}</div>
+                    <div className="font-semibold">{v.nama}</div>
+                    <div className="">{v.total.toLocaleString()}</div>
                   </div>
                   <div className=" mt-1 grid grid-cols-5 items-center justify-center gap-1 font-bold">
                     <div className="flex justify-start">
@@ -309,7 +309,7 @@ export default function Warung() {
                       </div>
                     </div>
                     <div>
-                      <div className="flex justify-center items-center  text-center mx-auto lowercase font-bold">
+                      <div className="flex justify-center items-center text-center mx-auto lowercase font-bold">
                         <p>{v.jumlah}</p>
                       </div>
                     </div>
@@ -321,7 +321,7 @@ export default function Warung() {
                     >
                       <p>x</p>
                     </div>
-                    <div className="font-normal">
+                    <div className="font-normal text-sm">
                       @Rp{v.harga.toLocaleString()}
                     </div>
                   </div>
